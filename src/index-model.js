@@ -42,20 +42,18 @@ export const useFloater = ({
 
     const x = e?.screenX || e?.clientX
     const y = e?.screenY || e?.clientY
-    const maxSpeed = 100
     const s = speed / 2
-    const d = distance
-    const maxDistance = wrap?.centerX
+    const maxDistance = 200
 
     let newX = x - centerX
     const timesX = newX >= 0 ? 1 : -1
-    newX = Math.abs(newX) >= maxDistance ? 1 * timesX : newX / 100
+    newX = Math.abs(newX) >= centerX ? 1 * timesX : newX / maxDistance
     newX = newX * distance
     newX = newX * s
 
     let newY = y - centerY
     const timesY = newY >= 0 ? 1 : -1
-    newY = Math.abs(newY) >= maxDistance ? 1 * timesY : newY / 100
+    newY = Math.abs(newY) >= centerX ? 1 * timesY : newY / maxDistance
     newY = newY * distance
     newY = newY * s
 
