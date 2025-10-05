@@ -1,14 +1,16 @@
 import { useRef, useState, useEffect, useCallback } from 'react'
 import { CommonUtils } from './utils'
 
-export const useFloater = ({
-  wrapper,
-  speed = 5,
-  distance = 200,
-  inverted,
-  invertedX,
-  invertedY
-}) => {
+export const useFloater = (props) => {
+  const {
+    wrapper,
+    speed = 1,
+    distance = 20,
+    inverted,
+    invertedX,
+    invertedY
+  } = props
+
   const ref = useRef(null)
   const [move, setMove] = useState({ x: 0, y: 0 })
   const mainRef = useRef(null)
