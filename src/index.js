@@ -1,6 +1,19 @@
 import React from 'react'
-import styles from './styles.module.css'
+import { useFloater } from './index-model'
 
-export const ExampleComponent = ({ text }) => {
-  return <div className={styles.test}>Example Component: {text}</div>
+export const Floater = (props) => {
+  const { ref, move } = useFloater(props)
+  const { children, className } = props
+  return (
+    <div
+      ref={ref}
+      className={`floater ${className ?? ''}`}
+      style={{
+        '--floater-x': (move?.x || 0) + 'px',
+        '--floater-y': (move?.y || 0) + 'px'
+      }}
+    >
+      {children}
+    </div>
+  )
 }

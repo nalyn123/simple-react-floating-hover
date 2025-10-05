@@ -1,0 +1,11 @@
+/* add css module styles here (optional) */
+:root {
+  --floater-speed: 0.1s;
+  --floater-x: 0;
+  --floater-y: 0;
+}
+.floater {
+  transform: translate(var(--floater-x), var(--floater-y));
+  // -webkit-transition: transform var(--floater-speed) linear;
+  // transition: transform var(--floater-speed) linear;
+}
